@@ -33,14 +33,16 @@ func _physics_process(delta: float):
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = jump_velocity
+			alternate_sprite = !alternate_sprite
+			world_manager.switch_world()
 		elif is_on_wall():
 			var wall_normal = get_wall_normal()
 			velocity.x = wall_normal.x * WALL_JUMP_X	
 			velocity.y = WALL_JUMP_Y
 			wall_jump_timer = WALL_JUMP_LOCK
 		
-		alternate_sprite = !alternate_sprite
-		world_manager.switch_world()
+			alternate_sprite = !alternate_sprite
+			world_manager.switch_world()
 
 	if direction == 0:
 		if not alternate_sprite:
