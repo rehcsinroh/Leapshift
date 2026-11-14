@@ -4,8 +4,11 @@ extends CharacterBody2D
 @export var speed: float = 250.0
 @export var jump_velocity: float = -400.0
 @export var death_y: float = 200.0
+var wall_jump_timer = 0.0
+const WALL_JUMP_LOCK = 0.2
+var WALL_JUMP_X: float = 200
+var WALL_JUMP_Y: float = -250
 
-# Reference to WorldManager
 @export var world_manager: Node
 
 # Gravity
@@ -13,12 +16,12 @@ var gravity: float = 980.0
 var alternate_sprite: bool = false
 
 func _physics_process(delta: float):
+	
+	wall_jump_timer = maxf(wall_jump_timer - delta, 0.0)
 
-	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Horizontal movement
 	var direction = Input.get_axis("move_left", "move_right")
 
 	velocity.x = direction * speed
@@ -27,12 +30,16 @@ func _physics_process(delta: float):
 	elif direction > 0:
 		$AnimatedSprite2D.flip_h = false
 	# Jumping
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-
-		velocity.y = jump_velocity
-
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y = jump_velocity
+		elif is_on_wall():
+			var wall_normal = get_wall_normal()
+			velocity.x = wall_normal.x * WALL_JUMP_X	
+			velocity.y = WALL_JUMP_Y
+			wall_jump_timer = WALL_JUMP_LOCK
+		
 		alternate_sprite = !alternate_sprite
-
 		world_manager.switch_world()
 
 	if direction == 0:
