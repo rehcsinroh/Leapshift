@@ -34,7 +34,7 @@ func start_camera_zoom():
 	tween.tween_property(
 		camera,
 		"zoom",
-		Vector2(4, 4),
+		Vector2(3.5, 3.5),
 		2.0
 	)
 

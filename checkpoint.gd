@@ -11,6 +11,6 @@ func _ready():
 func _on_body_entered(body):
 	if body is CharacterBody2D and not activated:
 		activated = true
-		world_manager.set_checkpoint(global_position + Vector2(0, 60))
+		world_manager.set_checkpoint(global_position + Vector2(0, 0))
 
 		$Sprite2D.material.set_shader_parameter("invert", true)
