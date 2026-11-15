@@ -34,7 +34,8 @@ func _physics_process(delta: float):
 
 	if not is_on_floor():
 		if is_on_wall() and velocity.y > 0:
-			velocity.y += gravity/2 * delta
+			velocity.y += gravity / 2 * delta
+			velocity.y = minf(velocity.y, 120.0)
 		else:
 			velocity.y += gravity * delta
 
@@ -67,21 +68,11 @@ func _physics_process(delta: float):
 		else:
 			$AnimatedSprite2D.play("idleb")
 	else:
-		if $AnimatedSprite2D.animation == "idlew" or $AnimatedSprite2D.animation == "idleb":
-			if not alternate_sprite:
-				$AnimatedSprite2D.play("1w")
-			else:
-				$AnimatedSprite2D.play("1b")
-		elif $AnimatedSprite2D.animation == "1w" or $AnimatedSprite2D.animation == "1b":
-			if not alternate_sprite:
-				$AnimatedSprite2D.play("2w")
-			else:
-				$AnimatedSprite2D.play("2b")
+		if not alternate_sprite:
+			$AnimatedSprite2D.play("1w")
 		else:
-			if not alternate_sprite:
-				$AnimatedSprite2D.play("3w")
-			else:
-				$AnimatedSprite2D.play("3b")
+			$AnimatedSprite2D.play("1b")
+
 	
 	# Move player
 	move_and_slide()

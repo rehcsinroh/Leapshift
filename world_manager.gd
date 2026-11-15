@@ -15,8 +15,8 @@ var current_world: World = World.B
 
 @export var background: ColorRect
 
-@export var color_a: Color = Color("#BBBBBB")
-@export var color_b: Color = Color("#333333")
+@export var color_a: Color = Color("#555555")
+@export var color_b: Color = Color("#AAAAAA")
 
 @export var fade_duration: float = 0.6
 
