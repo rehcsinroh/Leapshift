@@ -8,6 +8,10 @@ var wall_jump_timer = 0.0
 const WALL_JUMP_LOCK = 0.2
 var WALL_JUMP_X: float = 200
 var WALL_JUMP_Y: float = -250
+@export var coyote_time: float = 1.5
+@export var jump_buffering: float = 1.5
+var coyote_timer: int = coyote_time
+var jump_buffering_timer = jump_buffering
 
 @export var world_manager: Node
 
@@ -16,6 +20,9 @@ var gravity: float = 980.0
 var alternate_sprite: bool = false
 
 func _physics_process(delta: float):
+	if is_on_floor():
+		coyote_timer = coyote_time
+	
 	
 	wall_jump_timer = maxf(wall_jump_timer - delta, 0.0)
 
