@@ -58,7 +58,7 @@ func update_worlds():
 	world_a.z_index = 0 if current_world == World.A else 1
 	world_b.z_index = 0 if current_world == World.B else 1
 
-	world_a.modulate.a = 1.0 if current_world == World.A else transparency*1.5
+	world_a.modulate.a = 1.0 if current_world == World.A else transparency
 	world_b.modulate.a = 1.0 if current_world == World.B else transparency
 
 	world_a.get_node("WorldATiles").collision_enabled = current_world == World.A

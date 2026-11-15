@@ -53,12 +53,13 @@ func _physics_process(delta: float):
 			alternate_sprite = !alternate_sprite
 			world_manager.switch_world()
 			coyote_timer = 0
-		elif is_on_wall():
+			jump_buffering_timer = 0
+		elif is_on_wall() and not is_on_floor():
 			var wall_normal = get_wall_normal()
 			velocity.x = wall_normal.x * WALL_JUMP_X	
 			velocity.y = WALL_JUMP_Y
 			wall_jump_timer = WALL_JUMP_LOCK
-		
+			jump_buffering_timer = 0
 			alternate_sprite = !alternate_sprite
 			world_manager.switch_world()
 
