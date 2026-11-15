@@ -282,10 +282,10 @@ animation = &"3b"
 
 [node name="Background" type="ColorRect" parent="." unique_id=67629154]
 z_index = -5
-offset_left = -3925.0
-offset_top = -1851.0
-offset_right = 3502.0
-offset_bottom = 2399.0
+offset_left = -4124.0
+offset_top = -1878.0
+offset_right = 3303.0
+offset_bottom = 2372.0
 color = Color(0.4630682, 0.4630682, 0.4630682, 1)
 
 [node name="Metal_tiles" type="TileMapLayer" parent="." unique_id=1686728506]
