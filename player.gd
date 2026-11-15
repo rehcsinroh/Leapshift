@@ -79,8 +79,8 @@ func _physics_process(delta: float):
 	move_and_slide()
 	
 	if global_position.y > death_y:	
-		get_tree().reload_current_scene()
+		world_manager.respawn_player()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	get_tree().reload_current_scene()
+	world_manager.respawn_player()
