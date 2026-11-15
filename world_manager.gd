@@ -20,11 +20,22 @@ var current_world: World = World.B
 
 @export var fade_duration: float = 0.6
 
+var checkpoint_position: Vector2
 var color_tween: Tween
 
 func _ready():
+	checkpoint_position = get_parent().get_node("Player").global_position
 	update_worlds()
 
+
+func set_checkpoint(new_position: Vector2):
+	checkpoint_position = new_position
+	print("Checkpoint activated at: ", new_position)
+
+func respawn_player():
+	var player = get_parent().get_node("Player")
+	player.global_position = checkpoint_position
+	player.velocity = Vector2.ZERO
 
 func switch_world():
 	if current_world == World.A:
