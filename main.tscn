@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bn7hdkabtc88e" path="res://assets/playerwhitewalking3.png" id="8_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bwo7m0cpil4ys" path="res://assets/spriteblackwallking3.png" id="9_w48qg"]
 [ext_resource type="Texture2D" uid="uid://b6ogk8ptalglr" path="res://assets/player2.png" id="11_vivmo"]
-[ext_resource type="Texture2D" uid="uid://bhyou1ie4em23" path="res://assets/metaltiles.png" id="13_w48qg"]
+[ext_resource type="Texture2D" uid="uid://c37g8fepbwcbr" path="res://assets/metaltilesthick.png" id="13_ycdy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vivmo"]
 texture = ExtResource("2_ycdy4")
@@ -191,8 +191,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2cqfq"]
-texture = ExtResource("13_w48qg")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w48qg"]
+texture = ExtResource("13_ycdy4")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -224,9 +224,9 @@ texture = ExtResource("13_w48qg")
 2:3/0 = 0
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_bm0wb"]
+[sub_resource type="TileSet" id="TileSet_ycdy4"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_2cqfq")
+sources/0 = SubResource("TileSetAtlasSource_w48qg")
 
 [node name="Main" type="Node2D" unique_id=829204174]
 
@@ -290,4 +290,4 @@ color = Color(0.4630682, 0.4630682, 0.4630682, 1)
 
 [node name="Metal_tiles" type="TileMapLayer" parent="." unique_id=1686728506]
 tile_map_data = PackedByteArray("AAD0//3/AAAAAAAAAAD2//3/AAABAAAAAAD4//3/AAACAAAAAAD6//3/AAADAAAAAAD0////AAAAAAEAAAD2////AAABAAEAAAD4////AAACAAEAAAD6////AAADAAEAAAD0/wEAAAABAAIAAAD2/wEAAAAAAAIAAAD4/wEAAAACAAIAAAD6/wEAAAADAAIAAAD0/wMAAAAAAAMAAAD2/wMAAAABAAMAAAD3/wMAAAACAAMAAAD///7/AAABAAIAAAD+//7/AAABAAIAAAAAAP7/AAABAAIAAAABAP7/AAABAAIAAAD9//7/AAAAAAEAAAACAP7/AAABAAEAAAD9//3/AAAAAAIAAAD9//z/AAAAAAIAAAD9//v/AAAAAAIAAAD9//r/AAAAAAIAAAD9//n/AAAAAAIAAAD9//j/AAAAAAIAAAD9//f/AAAAAAIAAAD9//b/AAAAAAIAAAACAP3/AAAAAAIAAAACAPz/AAAAAAIAAAACAPv/AAAAAAIAAAACAPr/AAAAAAIAAAACAPn/AAAAAAIAAAACAPj/AAAAAAIAAAACAPf/AAAAAAIAAAACAPb/AAAAAAAAAAD9//X/AAADAAEAAAD8//X/AAABAAIAAAD7//X/AAABAAIAAAD6//X/AAABAAIAAAD5//X/AAABAAIAAAD4//X/AAABAAIAAAD3//X/AAABAAAAAAD5/+b/AAABAAAAAAD+/+b/AAACAAAAAAD6/+b/AAABAAIAAAD7/+b/AAABAAIAAAD8/+b/AAABAAIAAAD9/+b/AAABAAIAAAA=")
-tile_set = SubResource("TileSet_bm0wb")
+tile_set = SubResource("TileSet_ycdy4")
