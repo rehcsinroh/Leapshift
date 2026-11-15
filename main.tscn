@@ -129,18 +129,30 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2cqfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ycdy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_w48qg")
 }],
-"loop": 1,
+"loop": 2,
 "name": &"1b",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kek77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5vw27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5vw27")
 }],
-"loop": 1,
+"loop": 2,
 "name": &"1w",
-"speed": 1.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -236,8 +248,8 @@ world_a = NodePath("../WorldA")
 world_b = NodePath("../WorldB")
 transparency = 0.15
 background = NodePath("../Background")
-color_a = Color(0.6517693, 0.65176934, 0.6517693, 1)
-color_b = Color(0.14333999, 0.14333999, 0.14333999, 1)
+color_a = Color(0.6666667, 0.6666667, 0.6666667, 1)
+color_b = Color(0.33333334, 0.33333334, 0.33333334, 1)
 
 [node name="WorldA" type="Node2D" parent="." unique_id=926490675]
 
@@ -278,7 +290,7 @@ position_smoothing_enabled = true
 position = Vector2(1, -67)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_lquwl")
-animation = &"3w"
+animation = &"1w"
 
 [node name="Background" type="ColorRect" parent="." unique_id=67629154]
 z_index = -5
