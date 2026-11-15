@@ -9,9 +9,9 @@ const WALL_JUMP_LOCK = 0.2
 var WALL_JUMP_X: float = 100
 var WALL_JUMP_Y: float = -250
 @export var coyote_time: float = 0.06
-@export var jump_buffering: float = 1.5
+@export var jump_buffering: float = 0.06
 var coyote_timer: float = coyote_time
-var jump_buffering_timer: float = jump_buffering
+var jump_buffering_timer: float = 0.0
 
 @export var world_manager: Node
 
@@ -24,7 +24,12 @@ func _physics_process(delta: float):
 		coyote_timer = coyote_time
 	else:
 		coyote_timer -= delta
-	
+
+	if Input.is_action_just_pressed("jump"):
+		jump_buffering_timer = jump_buffering
+	else:
+		jump_buffering_timer = maxf(jump_buffering_timer - delta, 0.0)
+
 	wall_jump_timer = maxf(wall_jump_timer - delta, 0.0)
 
 	if not is_on_floor():
@@ -41,7 +46,7 @@ func _physics_process(delta: float):
 	elif direction > 0:
 		$AnimatedSprite2D.flip_h = false
 	# Jumping
-	if Input.is_action_just_pressed("jump"):
+	if jump_buffering_timer > 0.0:
 		if is_on_floor() or coyote_timer > 0:
 			velocity.y = jump_velocity
 			alternate_sprite = !alternate_sprite
