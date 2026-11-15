@@ -3,7 +3,7 @@ extends CharacterBody2D
 # Movement settings
 @export var speed: float = 250.0
 @export var jump_velocity: float = -400.0
-@export var death_y: float = 200.0
+@export var death_y: float = 600
 var wall_jump_timer = 0.0
 const WALL_JUMP_LOCK = 0.2
 var WALL_JUMP_X: float = 100
@@ -14,10 +14,29 @@ var coyote_timer: float = coyote_time
 var jump_buffering_timer: float = 0.0
 
 @export var world_manager: Node
+@onready var camera = $Camera2D
+
+var has_jumped = false
+var original_zoom = Vector2(2, 2)
 
 # Gravity
 var gravity: float = 980.0
 var alternate_sprite: bool = false
+
+func _ready():
+	original_zoom = camera.zoom
+
+func start_camera_zoom():
+	await get_tree().create_timer(2.0).timeout
+
+	var tween = create_tween()
+
+	tween.tween_property(
+		camera,
+		"zoom",
+		Vector2(4, 4),
+		2.0
+	)
 
 func _physics_process(delta: float):
 	if is_on_floor():
@@ -26,6 +45,9 @@ func _physics_process(delta: float):
 		coyote_timer -= delta
 
 	if Input.is_action_just_pressed("jump"):
+		if not has_jumped:
+			has_jumped = true
+			start_camera_zoom()
 		jump_buffering_timer = jump_buffering
 	else:
 		jump_buffering_timer = maxf(jump_buffering_timer - delta, 0.0)
